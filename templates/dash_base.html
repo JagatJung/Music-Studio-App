@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9IndoaXRlIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0ibTEyLjc1NiAxMS43NTlsLS4wMDEuMDE2YTguMjIgOC4yMiAwIDAgMC0uMDA0LjUzN2guMDAyYy4wMjcuMDE1LjA2NC4wMzQuMTM3LjA3bC45ODguNDkyYy4xNy4wODQuMjcxLjEzNC4zNDcuMTY3bC4wMi4wMDh2LS4wMTZhOC4zNzEgOC4zNzEgMCAwIDAgLjAwNC0uNTM2bC0uMDAyLS4wMDFhNC44NDggNC44NDggMCAwIDAtLjEzNy0uMDdsLS45ODgtLjQ5MWE4LjQ0NSA4LjQ0NSAwIDAgMC0uMzQ3LS4xNjh6bS0uMDA2IDIuMjI5bC40NzUuMjM2Yy4xNS4wNzUuMjg3LjE0My40MDMuMTkzYy4xMTguMDUyLjI3Mi4xMS40NDkuMTMxYTEuNSAxLjUgMCAwIDAgMS41ODMtLjk3NWMuMDYtLjE2Ny4wNzctLjMzMi4wODMtLjQ2Yy4wMDctLjEyNy4wMDctLjI4LjAwNy0uNDQ2di0uMDQ5YzAtLjExOCAwLS4yNjUtLjAyNy0uNDA4YTEuNDk1IDEuNDk1IDAgMCAwLS41NjMtLjkwN2EyLjE1IDIuMTUgMCAwIDAtLjM1My0uMjA2bC0uMDMtLjAxNGwtMS4wMDItLjQ5OWMtLjE1LS4wNzQtLjI4Ny0uMTQzLS40MDMtLjE5M2ExLjU4NSAxLjU4NSAwIDAgMC0uNDQ5LS4xM2ExLjUgMS41IDAgMCAwLTEuNTgzLjk3NWMtLjA2LjE2Ny0uMDc3LjMzMi0uMDgzLjQ2YTYuOTAyIDYuOTAyIDAgMCAwLS4wMDcuMzM1djIuMzYyYTIuMjU0IDIuMjU0IDAgMCAwLTMgMi4xMTVhMi4yNDYgMi4yNDYgMCAwIDAgMi4yNSAyLjI0MmMxLjIzOSAwIDIuMjUtMSAyLjI1LTIuMjQyem0tMS41IDIuNTJhLjc0Ni43NDYgMCAwIDAtLjc1LS43NDJhLjc0Ni43NDYgMCAwIDAtLjc1Ljc0MmMwIC40MDYuMzMyLjc0Mi43NS43NDJzLjc1LS4zMzYuNzUtLjc0MiIvPjxwYXRoIGQ9Ik04LjcgMS4yNWg2LjZjLjIyIDAgLjM4OSAwIC41MzYuMDE2QTIuNzUgMi43NSAwIDAgMSAxOC4yOSAzLjg3YTIuODg4IDIuODg4IDAgMCAxIDIuMDU0IDIuNzIxYy42MDEuMTggMS4xMi40NjUgMS41NDQuOTIzYy42NTIuNzA1Ljg1NCAxLjU3Mi44NjIgMi41ODZjLjAwNy45NzUtLjE2NiAyLjIwNy0uMzgyIDMuNzM2bC0uNDQgMy4xMTRjLS4xNjggMS4xOTYtLjMwNSAyLjE2OC0uNTE4IDIuOTI5Yy0uMjIzLjc5Ny0uNTUyIDEuNDUyLTEuMTYgMS45NTZjLS42MDQuNS0xLjMyLjcxNS0yLjE2Ni44MTdjLS44MTkuMDk4LTEuODQ5LjA5OC0zLjEzLjA5OEg5LjA0NmMtMS4yODIgMC0yLjMxMiAwLTMuMTMtLjA5OGMtLjg0Ny0uMTAyLTEuNTYzLS4zMTctMi4xNjctLjgxN2MtLjYwOC0uNTA0LS45MzctMS4xNi0xLjE2LTEuOTU2Yy0uMjEzLS43NjEtLjM1LTEuNzMzLS41MTktMi45M2wtLjQzOS0zLjExM2MtLjIxNS0xLjUzLS4zOS0yLjc2MS0uMzgyLTMuNzM2Yy4wMDgtMS4wMTQuMjEtMS44ODEuODYyLTIuNTg2Yy40MjQtLjQ1OC45NDItLjc0MiAxLjU0My0uOTIzYTIuODg4IDIuODg4IDAgMCAxIDIuMDU1LTIuNzJhMi43NSAyLjc1IDAgMCAxIDIuNDU0LTIuNjA1Yy4xNDctLjAxNi4zMTYtLjAxNi41MzUtLjAxNm0tMy41MSA1LjA3OGMuOTI2LS4wNzggMi4wNi0uMDc4IDMuNDI3LS4wNzhoNi43NjhjMS4zNjYgMCAyLjUgMCAzLjQyNy4wNzhhMS4zODMgMS4zODMgMCAwIDAtMS4zNS0xLjA3OEg2LjUzOWMtLjY2OSAwLTEuMjEyLjQ3LTEuMzQ5IDEuMDc4bTEwLjQ4Ny0zLjU3Yy41NS4wNTguOTg1LjQ2OCAxLjA5Mi45OTJINy4yMzJhMS4yNSAxLjI1IDAgMCAxIDEuMDkyLS45OTNjLjA1Ni0uMDA2LjEzNi0uMDA3LjQxNy0uMDA3aDYuNTE4Yy4yOCAwIC4zNi4wMDEuNDE3LjAwN00zLjIxMyA4LjUzMmMuMzAzLS4zMjcuNzU4LS41NDQgMS42NDMtLjY2MmMuOTAxLS4xMiAyLjEwOC0uMTIxIDMuODE2LS4xMjFoNi42NTZjMS43MDggMCAyLjkxNS4wMDIgMy44MTYuMTIxYy44ODUuMTE4IDEuMzQuMzM1IDEuNjQzLjY2MmMuMjk2LjMyLjQ1Ny43NTUuNDYzIDEuNTc5Yy4wMDYuODUtLjE1IDEuOTctLjM3NiAzLjU3NmwtLjQyMyAzYy0uMTc4IDEuMjYxLS4zMDIgMi4xMzMtLjQ4NSAyLjc4N2MtLjE3Ny42My0uMzg0Ljk2NS0uNjczIDEuMjA0Yy0uMjkzLjI0NC0uNjg3LjQtMS4zODguNDg0Yy0uNzE5LjA4Ni0xLjY1OC4wODctMyAuMDg3aC01LjgxYy0xLjM0MiAwLTIuMjgxLS4wMDEtMy0uMDg3Yy0uNy0uMDg1LTEuMDk1LS4yNC0xLjM4OC0uNDgzYy0uMjg5LS4yNC0uNDk2LS41NzYtLjY3My0xLjIwNWMtLjE4My0uNjU0LS4zMDctMS41MjYtLjQ4NS0yLjc4N2wtLjQyMy0zYy0uMjI2LTEuNjA1LS4zODItMi43MjYtLjM3Ni0zLjU3NmMuMDA2LS44MjQuMTY3LTEuMjYuNDYzLTEuNTc5Ii8+PC9nPjwvc3ZnPg==" type="image/png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@1.12.6/dist/full.css" rel="stylesheet">
+
+    <style>
+        #main {
+            transition: margin-left 0.3s ease; /* Smooth transition for margin-left property */
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <button id="toggleSidebar" class="fixed bottom-4 left-4 z-50 bg-gray-700 text-white rounded-full p-2 focus:outline-none" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+    </button>
+
+    <button id="toggleSidebar" class="fixed bottom-4 right-4 bg-red-700 text-white rounded-full p-2 focus:outline-none z-50" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24"><path fill="currentColor" d="M12 20a8 8 0 1 1 0-16z" opacity="0.5"/><path fill="currentColor" fill-rule="evenodd" d="M16.47 8.47a.75.75 0 0 0 0 1.06l1.72 1.72H10a.75.75 0 0 0 0 1.5h8.19l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 0 0-1.06 0" clip-rule="evenodd"/></svg>
+    </button>
+
+<!-- Sidebar -->
+<aside class="bg-gray-800 text-white h-screen w-64 fixed top-0 left-0 transition-transform duration-300 ease-in-out transform overflow-y-auto px-3 z-40 ">
+    <div class="p-4">
+        <h1 class="text-2xl font-bold ml-2">
+            Studio
+        </h1>
+    </div>
+    <nav class="text-white text-base">
+       
+        <a href="#" class="flex items-center text-white opacity-75 hover:bg-gray-700 rounded py-3 pl-6 nav-item font-bold {% block user_active %}{% endblock %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" class="mr-2"><path fill="currentColor" d="M5.85 17.1q1.275-.975 2.85-1.537T12 15t3.3.563t2.85 1.537q.875-1.025 1.363-2.325T20 12q0-3.325-2.337-5.663T12 4T6.337 6.338T4 12q0 1.475.488 2.775T5.85 17.1M12 13q-1.475 0-2.488-1.012T8.5 9.5t1.013-2.488T12 6t2.488 1.013T15.5 9.5t-1.012 2.488T12 13m0 9q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
+            User
+        </a>
+        
+        <a href="#" class="flex items-center text-white opacity-75 hover:bg-gray-700 rounded py-3 pl-6 nav-item font-bold {% block artist_active %}{% endblock %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" class="mr-2"><path fill="currentColor" d="M12 1.75A10.25 10.25 0 1 0 22.25 12A10.26 10.26 0 0 0 12 1.75m5.42 7.64a2.22 2.22 0 0 1-.22.92a2.12 2.12 0 0 1-.6.73a2.06 2.06 0 0 1-.85.39c-.14.015-.28.015-.42 0c-.175 0-.35-.02-.52-.06l-2.06-.58v4.34a3.09 3.09 0 1 1-3.08-3.09a2.94 2.94 0 0 1 1.58.45v-6a.639.639 0 0 1 0-.2v-.08a.72.72 0 0 1 .54-.44h.44l3.61 1a2.09 2.09 0 0 1 1.09.75c.27.362.42.799.43 1.25z"/><path fill="currentColor" d="M11.25 15.17a1.59 1.59 0 1 1-1.58-1.59a1.58 1.58 0 0 1 1.58 1.59m4.67-6.34v.56a.77.77 0 0 1-.07.26a.45.45 0 0 1-.16.2a.74.74 0 0 1-.24.11a.53.53 0 0 1-.25 0l-2.45-.69V7.49l2.74.78a.66.66 0 0 1 .31.21c.068.105.11.225.12.35"/></svg>
+            Artist
+        </a>
+        <a href="#" class="flex items-center text-white opacity-75 hover:bg-gray-700 rounded py-3 pl-6 nav-item font-bold {% block song_active %}{% endblock %}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" class="mr-2"><g fill="none"><circle cx="12" cy="12" r="2" fill="currentColor" opacity="0.16"/><circle cx="12" cy="12" r="2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><circle cx="18" cy="9" r="2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.318 3.631a9 9 0 1 0 5.368 10.736M20 9V2l2 2"/></g></svg>
+            Song
+        </a>
+    </nav>
+    <!-- Collapse Button -->
+</aside>
+
+<!-- Main Content -->
+<div class="ml-0 md:ml-64" id="main">
+    <!-- Content -->
+    <div class="p-4 overflow-y-auto px-5">
+        {% block content %}
+        {% endblock %}     
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Include DataTables CSS -->
+<!-- Include DataTables JS -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
+
+<script>
+    document.getElementById('toggleSidebar').addEventListener('click', function() {
+        document.querySelector('aside').classList.toggle('-translate-x-full');
+        document.getElementById('main').classList.toggle("md:ml-64");
+    });
+
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
+</script>
+
+</body>
+</html>

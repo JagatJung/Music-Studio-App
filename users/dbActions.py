@@ -26,12 +26,11 @@ def dlt_user(user_id):
     with connection.cursor() as cursor:
         cursor.execute("DELETE FROM user WHERE id = %s", [user_id]) 
 
-def insertUser(first_name, last_name, email, password, phone, dob, gender, address):
-    query = "INSERT INTO user (first_name, last_name, email, password, phone, dob, gender, address) VALUES (%s, %s, %s,%s, %s, %s,%s, %s)"
-
+def insertUser(first_name, last_name, email, phone, dob, gender, address):
+    query = "INSERT INTO user (first_name, last_name, email, phone, dob, gender, address, updated_at) VALUES (%s, %s, %s,%s, %s, %s,%s, NOW())"
     # Execute the SQL query
     with connection.cursor() as cursor:
-        cursor.execute(query, [first_name, last_name, email, password, phone, dob, gender, address])
+        cursor.execute(query, [first_name, last_name, email, phone, dob, gender, address])
 
 def updateUser(first_name, last_name, email, phone, dob, gender, address, user_id):
         query = "UPDATE user SET first_name = %s, last_name = %s, email = %s, phone  = %s, dob = %s, gender = %s, address = %s, updated_at = NOW() WHERE id = %s"

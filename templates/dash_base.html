@@ -61,9 +61,13 @@
 </aside>
 
 <!-- Main Content -->
-<div class="ml-0 md:ml-64" id="main">
+<div class="ml-0 md:ml-64 px-3" id="main">
     <!-- Content -->
-    <div class="p-4 overflow-y-auto px-5">
+    <div class="p-4 px-5 bg-white rounded-xl my-2 shadow-lg font-bold">
+        Welcome User Name to the user dashboard.
+    </div>
+
+    <div class="p-4 overflow-y-auto px-5 bg-white rounded-xl my-2 shadow-lg">
         {% block content %}
         {% endblock %}     
     </div>
@@ -97,38 +101,28 @@
         document.getElementById('main').classList.toggle("md:ml-64");
     });
 
-    function cleanTD(id) {
-        const this_td = id.getElementsByTagName('input')[0].value;        
-        id.innerHTML = this_td;
-    }
 
     $(document).ready(function() {
         $('#user_table').DataTable();
-
-        let temp_value = '';
-        let temp_id = '';
-        let already_occupied = 0;
-        $('#user_table td').dblclick(function() {
-            if (already_occupied == 1) {
-                already_occupied = 0;
-                const prev_element = document.getElementById(temp_id[0]+'_'+temp_id[1]);
-                prev_element.innerHTML = temp_value;
-            }
-            already_occupied = 1;
-            temp_value = this.innerText;
-            temp_id = (this.id).split("_");
-            if (!$(this).children('input').length && (temp_id[0] != "address")) {
-              $(this).html(
-                '<form method="POST"> {% csrf_token %}' +
-                '<input type="text" value="'+ temp_value +'" name="'+temp_id[0]+'">'+
-                '<button class="bg-blue-500 hover:bg-blue-700 text-white rounded ml-1 p-1" type="submit" value="update_'+temp_id[1]+'_'+temp_id[0]+'" name="submit">&#10003;</button>' +
-                 
-                '</form>'+
-                '<button class="bg-red-500 hover:bg-red-700 text-white rounded ml-1 p-1" type="submit" onclick="cleanTD('+this.id+')">X</button>'
-                );
-            }
-          });
     });
+
+    function showModalCustom(user_id) {
+        
+        update.showModal();
+        document.getElementById('first_name_modal').value = ((document.getElementById('name_'+user_id).innerText).split(" "))[0];
+        document.getElementById('last_name_modal').value = ((document.getElementById('name_'+user_id).innerText).split(" "))[1];
+        document.getElementById('dob_modal').value = document.getElementById('dob_'+user_id).innerText;
+        document.getElementById('email_modal').value = document.getElementById('email_'+user_id).innerText;
+        document.getElementById('phone_modal').value = document.getElementById('phone_'+user_id).innerText;
+        
+        document.getElementById('gender_modal').value = 
+            (document.getElementById('gender_'+user_id).innerText == "Male") ? "m" 
+            : (document.getElementById('gender_'+user_id).innerText == "Female") ? "f" 
+            : "o" ;
+        
+        document.getElementById('address_modal').value = document.getElementById('address_'+user_id).innerText;
+        document.getElementById('modal_submit').value = 'update_'+user_id;
+    }
 </script>
 
 </body>

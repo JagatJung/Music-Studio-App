@@ -1,32 +1,33 @@
 <form method='POST' class="mt-4 ">
+  {% csrf_token %}
     <div class="max-w-lg mx-auto">
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div class="mb-4 flex">
             <div class="w-1/2 mr-1">
 
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first_name" type="text" placeholder="First Name">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first_name_modal" name="first_name" type="text" placeholder="First Name">
             </div>
             <div class="w-1/2">
 
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="last_name" type="text" placeholder="Last Name">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="last_name_modal" name="last_name" type="text" placeholder="Last Name">
             </div>
           </div>
           <div class="mb-4">
 
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dob" type="date">
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dob_modal" name="dob" type="date">
           </div>
           <div class="mb-4">
 
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email">
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email_modal" name="email" type="email" placeholder="Email">
           </div>
           <div class="mb-4">
 
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="Phone Number">
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone_modal" name="phone" type="tel" placeholder="Phone Number">
           </div>
           <div class="mb-4">
 
             <div class="relative">
-              <select class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-2 px-3 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500" id="gender">
+              <select class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-2 px-3 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500" id="gender_modal" name="gender" >
                 <option value="m">Male</option>
                 <option value="f">Female</option>
                 <option value="o">Other</option>
@@ -40,10 +41,10 @@
             </div>
           </div>
           <div class="mb-4">
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address" placeholder="Address"></input>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address_modal" name="address" placeholder="Address"></input>
           </div>
           <div class="flex  justify-end"> <!-- Use flex container to align buttons -->
-            <button class="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded" type="submit" value="update_{{user.id}}">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded" type="submit" id="modal_submit" name="submit">
                 Update
             </button>
         </form>

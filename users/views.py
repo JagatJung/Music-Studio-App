@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from users.dbActions import getUsers, dlt_user, updateUser, insertUser
+from users.dbActions import getUsers, dlt_user, updateUser, insertUser, resetPasswordUser
 
 
 def user(request):
@@ -18,6 +18,11 @@ def user(request):
 
             elif (button_value[0] == 'insert'):
                 insertUser(request.POST['first_name_register'], request.POST['last_name_register'], request.POST['email_register'], request.POST['phone_register'],request.POST['dob_register'], request.POST['gender_register'], request.POST['address_register'])
+                return render(request, "user_dash.html",  {'users': getUsers})
+            
+            elif (button_value[0] == 'resetPassword'):
+                resetPasswordUser(button_value[1])
+                # add code that id its users own account than his session is destroyed
                 return render(request, "user_dash.html",  {'users': getUsers})
 
             

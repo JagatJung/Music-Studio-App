@@ -34,10 +34,18 @@ def insertUser(first_name, last_name, email, phone, dob, gender, address):
 
 def updateUser(first_name, last_name, email, phone, dob, gender, address, user_id):
         query = "UPDATE user SET first_name = %s, last_name = %s, email = %s, phone  = %s, dob = %s, gender = %s, address = %s, updated_at = NOW() WHERE id = %s"
-        print(query)
+
         # Execute the SQL query
         with connection.cursor() as cursor:
             cursor.execute(query, [first_name, last_name, email, phone, dob, gender, address, user_id])
+
+def resetPasswordUser( user_id):
+        query = "UPDATE user SET password = 0, updated_at = NOW() WHERE id = %s"
+     
+        # Execute the SQL query
+        with connection.cursor() as cursor:
+            cursor.execute(query, [user_id])
+
         
      
 

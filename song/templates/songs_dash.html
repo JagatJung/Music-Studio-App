@@ -1,0 +1,31 @@
+{% extends 'dash_base.html' %}
+
+{% block song_active %}bg-gray-700{% endblock %}
+
+{% block content %}
+   
+<table id="view_table" class="display w-full z-0">
+    <thead>
+        <tr>
+            <th>sno</th>
+            <th>Name of Artist</th>
+            <th>Album</th>
+            <th>Title</th>
+            <th>Genre</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for song in songs %}
+        <tr>
+            <td id="sno_{{song.id}}">{{forloop.counter}}</td>
+            <td id="name_{{song.id}}">{{song.name}}</td>
+            <td id="album_{{song.id}}">{{song.album_name}}</td>
+            <td id="title_{{song.id}}">{{song.title}}</td>
+            <td id="genre_{{song.id}}">{{song.genre}}</td>
+            <td id="action_{{song.id}}"></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

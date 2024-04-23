@@ -1,0 +1,43 @@
+{% extends 'dash_base.html' %}
+
+{% block artist_active %}bg-gray-700{% endblock %}
+
+{% block content %}
+   
+<table id="view_table" class="display w-full z-0">
+    <thead>
+        <tr>
+            <th>sno</th>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Debut Year</th>
+            <th>Number of Albums</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for artist in artists %}
+        <tr>
+            <td id="sno_{{artist.id}}">{{forloop.counter}}</td>
+            <td id="name_{{artist.id}}">{{artist.name}}</td>
+            <td id="dob_{{artist.id}}">{{artist.dob}}</td>
+            <td id="gender_{{artist.id}}">
+                {% if artist.gender == 'f' %} Female
+                {% elif artist.gender == 'm' %} Male
+                {% else %} Other {% endif %}
+            </td>
+            <td id="address_{{artist.id}}">{{artist.address}}</td>
+            <td id="debut_{{artist.id}}">{{artist.debut}}</td>
+            <td id="noa_{{artist.id}}">{{artist.NumberofAlbums}}</td>
+            <td id="action_{{artist.id}}"></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+
+
+

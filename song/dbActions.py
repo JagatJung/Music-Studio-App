@@ -16,3 +16,7 @@ def getSongs():
         }
         songs.append(song_dict)
     return songs
+
+def dlt_songs(song_id):
+    with connection.cursor() as cursor:
+        cursor.execute("DELETE FROM music WHERE id = %s", [song_id]) 

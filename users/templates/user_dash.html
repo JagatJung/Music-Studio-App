@@ -4,9 +4,10 @@
 
 {% block content %}
 <!-- Add specific content for this app here -->     
-<table id="example" class="display w-full z-0">
+<table id="user_table" class="display w-full z-0">
     <thead>
         <tr>
+            <th>sno</th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
@@ -19,23 +20,35 @@
     <tbody>
         {% for user in users %}
         <tr>
-            <td> {{ user.first_name }} {{ user.last_name }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.phone }}</td>
-            <td> {{ user.dob|date:'Y-m-d' }}</td>
-            <td>{% if user.gender == 'f' %} Female
+            <td id="sno_{{user.id}}">{{forloop.counter}}</td>
+            <td id="name_{{user.id}}"> {{ user.first_name }} {{ user.last_name }}</td>
+            <td id="email_{{user.id}}"> {{ user.email }}</td>
+            <td id="phone_{{user.id}}"> {{ user.phone }}</td>
+            <td id="dob_{{user.id}}"> {{ user.dob|date:'Y-m-d' }}</td>
+            <td id="gender_{{user.id}}">{% if user.gender == 'f' %} Female
                 {% elif user.gender == 'm' %} Male
                 {% else %} Other {% endif %}
             </td>
-            <td>{{ user.address }}</td>
+            <td id="address_{{user.id}}">{{ user.address }}</td>
             <td>
-                <button class="bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M7 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0-2.97-2.97L9 12v3h3zM16 5l3 3"/></g></svg>
-                </button>
-
-                <button class="bg-red-700 text-white font-bold py-2 px-4 rounded ml-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zM17 6H7v13h10zM9 17h2V8H9zm4 0h2V8h-2zM7 6v13z"/></svg>
-                </button>
+                <div class="flex"> <!-- Use flex container to align buttons -->
+                    <button class="bg-gray-700 text-white font-bold py-2 px-4 rounded" onclick="showModalCustom({{user.id}})" type="none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="inline">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                <path d="M7 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0-2.97-2.97L9 12v3h3zM16 5l3 3"/>
+                            </g>
+                        </svg>
+                    </button>
+                    <form method='POST' class="inline">
+                        {% csrf_token %}
+                        <button class="bg-red-700 text-white font-bold py-2 px-4 rounded ml-1" value="dlt_{{user.id}}" type="submit" name="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="inline">
+                                <path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zM17 6H7v13h10zM9 17h2V8H9zm4 0h2V8h-2zM7 6v13z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                
             </td>
         </tr>
         {% endfor %}
@@ -43,3 +56,8 @@
     </tbody>
 </table>
 {% endblock %}
+
+{% block form %}
+    {% include 'update_form.html' %} 
+{% endblock %} 
+

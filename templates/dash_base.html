@@ -69,6 +69,22 @@
     </div>
 </div>
 
+<dialog id="update" class="modal bg-gray-700 text-white rounded-xl px-5 py-3 drop-shadow-xl">
+    <div class="modal-box min-w-48 p-4">
+      <h3 class="font-bold text-lg">Update Users</h3>
+      {% block form %}
+      {% endblock %}    
+
+        <form method='dialog' class="inline">            
+            <button class="bg-red-500 text-white py-2 px-4 rounded ml-2" value="dlt_{{user.id}}" type="submit" name="submit">
+                Cancel
+            </button>
+        </form>
+      </div>
+    </div>
+    </div>
+  </dialog>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Include DataTables CSS -->
 <!-- Include DataTables JS -->
@@ -81,8 +97,37 @@
         document.getElementById('main').classList.toggle("md:ml-64");
     });
 
+    function cleanTD(id) {
+        const this_td = id.getElementsByTagName('input')[0].value;        
+        id.innerHTML = this_td;
+    }
+
     $(document).ready(function() {
-        $('#example').DataTable();
+        $('#user_table').DataTable();
+
+        let temp_value = '';
+        let temp_id = '';
+        let already_occupied = 0;
+        $('#user_table td').dblclick(function() {
+            if (already_occupied == 1) {
+                already_occupied = 0;
+                const prev_element = document.getElementById(temp_id[0]+'_'+temp_id[1]);
+                prev_element.innerHTML = temp_value;
+            }
+            already_occupied = 1;
+            temp_value = this.innerText;
+            temp_id = (this.id).split("_");
+            if (!$(this).children('input').length && (temp_id[0] != "address")) {
+              $(this).html(
+                '<form method="POST"> {% csrf_token %}' +
+                '<input type="text" value="'+ temp_value +'" name="'+temp_id[0]+'">'+
+                '<button class="bg-blue-500 hover:bg-blue-700 text-white rounded ml-1 p-1" type="submit" value="update_'+temp_id[1]+'_'+temp_id[0]+'" name="submit">&#10003;</button>' +
+                 
+                '</form>'+
+                '<button class="bg-red-500 hover:bg-red-700 text-white rounded ml-1 p-1" type="submit" onclick="cleanTD('+this.id+')">X</button>'
+                );
+            }
+          });
     });
 </script>
 

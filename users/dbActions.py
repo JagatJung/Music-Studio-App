@@ -21,3 +21,21 @@ def getUsers():
         }
         users.append(user_dict)
     return users
+
+def dlt_user(user_id):
+    with connection.cursor() as cursor:
+        cursor.execute("DELETE FROM user WHERE id = %s", [user_id]) 
+
+# def updateUser(first_name, last_name, email, password, phone, dob, gender, address):
+#     query = "INSERT INTO user (first_name, last_name, email, password, phone, dob, gender, address) VALUES (%s, %s, %s,%s, %s, %s,%s, %s)"
+
+#     # Execute the SQL query
+#     with connection.cursor() as cursor:
+#         cursor.execute(query, [first_name, last_name, email, password, phone, dob, gender, address])
+
+def updateUser(column, value, id):
+    query = "UPDATE user SET %s = %s WHERE id = %s"
+
+    # Execute the SQL query
+    with connection.cursor() as cursor:
+        cursor.execute(query, [str(column), str(value), int(id)])

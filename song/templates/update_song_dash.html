@@ -1,0 +1,53 @@
+<form method='POST' class="mt-4 ">
+    {% csrf_token %}
+      <div class="max-w-lg mx-auto">
+          <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            
+            <div class="mb-4">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title_modal" name="title" type="text" placeholder="title">
+              </div>
+
+            <div class="mb-4">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="album_name_modal" name="album_name" type="text" placeholder="Name of Album">
+            </div>
+
+              <div class="relative">
+                <select class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-2 px-3 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500" id="artist_select_modal" name="name" >
+                    {% for artist in artists %}
+                        <option value="{{ artist.artist_id }}">{{ artist.name }}</option>
+                    {% endfor %}
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 100-20 10 10 0 000 20z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="relative mt-4">
+                <select class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-2 px-3 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500" id="genre_modal" name="genre" >
+                        <option value="rnb">Rhythm and blues</option>
+                        <option value="country">Country</option>
+                        <option value="classic">Classic</option>
+                        <option value="rock">Rock</option>
+                        <option value="jazz">Jazz</option>
+                        
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 100-20 10 10 0 000 20z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+              </div>
+
+            
+            <div class="flex  justify-end mt-4"> <!-- Use flex container to align buttons -->
+              <button class="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded" type="submit" id="modal_submit" name="submit">
+                  Update
+              </button>
+          </form>
+  </form>
+
+

@@ -183,6 +183,25 @@
         document.getElementById('first_release_modal').value = document.getElementById('debut_'+artist_id).innerText;
         document.getElementById('modal_submit').value = 'update_'+artist_id;
     }
+
+    function showModalSong(song_id) {
+        update.showModal();
+
+        document.getElementById('title_modal').value = document.getElementById('title_'+song_id).innerText;
+        document.getElementById('album_name_modal').value = document.getElementById('album_'+song_id).innerText;
+        
+        document.getElementById('genre_modal').value = 
+        (document.getElementById('genre_'+song_id).innerText == "Rhythm and blues") ? "rnb" 
+        : (document.getElementById('genre_'+song_id).innerText == "Country") ? "country" 
+        : (document.getElementById('genre_'+song_id).innerText == "Classic") ? "classic" 
+        : (document.getElementById('genre_'+song_id).innerText == "Rock") ? "rock"
+        : "jazz" ;
+
+
+        document.getElementById('artist_select_modal').value = document.getElementById('name_'+song_id).getAttribute("value");
+        
+        document.getElementById('modal_submit').value = 'update_'+song_id;
+    }
 </script>
 <!-- jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

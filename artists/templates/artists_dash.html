@@ -22,7 +22,7 @@
         <tr>
             <td id="sno_{{artist.id}}">{{forloop.counter}}</td>
             <td id="name_{{artist.id}}">{{artist.name}}</td>
-            <td id="dob_{{artist.id}}">{{artist.dob}}</td>
+            <td id="dob_{{artist.id}}">{{artist.dob | date:'Y-m-d'}}</td>
             <td id="gender_{{artist.id}}">
                 {% if artist.gender == 'f' %} Female
                 {% elif artist.gender == 'm' %} Male
@@ -31,12 +31,35 @@
             <td id="address_{{artist.id}}">{{artist.address}}</td>
             <td id="debut_{{artist.id}}">{{artist.debut}}</td>
             <td id="noa_{{artist.id}}">{{artist.NumberofAlbums}}</td>
-            <td id="action_{{artist.id}}"></td>
+            <td id="action_{{artist.id}}">
+                <div class="flex"> <!-- Use flex container to align buttons -->
+                    <button class="bg-gray-700 text-white font-bold py-2 px-4 rounded" onclick="showModalArtist({{artist.id}})" type="none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="inline">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                <path d="M7 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0-2.97-2.97L9 12v3h3zM16 5l3 3"/>
+                            </g>
+                        </svg>
+                    </button>
+
+                    <form method='POST' class="inline">
+                        {% csrf_token %}
+                        <button class="bg-red-700 text-white font-bold py-2 px-4 rounded ml-1 " value="dlt_{{artist.id}}" type="submit" name="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="inline">
+                                <path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zM17 6H7v13h10zM9 17h2V8H9zm4 0h2V8h-2zM7 6v13z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 {% endblock %}
+
+{% block update_form %}
+{% include 'udpate_artist.html' %} 
+{% endblock %} 
 
 
 

@@ -17,3 +17,14 @@ def getArtist():
         }
         artists.append(artist_dict)
     return artists
+
+def dlt_artist(artist_id):
+    with connection.cursor() as cursor:
+        cursor.execute("DELETE FROM artist WHERE id = %s", [artist_id]) 
+
+def updateArtist(name, dob, gender, address, no_of_album, first_release, artist_id) :
+    query = "UPDATE artist SET name = %s, dob = %s, gender = %s, address  = %s, first_release_year = %s, no_of_album_released = %s, update_ts = NOW() WHERE id = %s"
+
+    # Execute the SQL query
+    with connection.cursor() as cursor:
+        cursor.execute(query, [name, dob, gender, address, first_release, no_of_album, artist_id])

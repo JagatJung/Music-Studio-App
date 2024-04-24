@@ -168,6 +168,21 @@
         document.getElementById('address_modal').value = document.getElementById('address_'+user_id).innerText;
         document.getElementById('modal_submit').value = 'update_'+user_id;
     }
+
+    function showModalArtist(artist_id) {
+        update.showModal();
+
+        document.getElementById('name_modal').value = document.getElementById('name_'+artist_id).innerText;
+        document.getElementById('dob_modal').value = document.getElementById('dob_'+artist_id).innerText;
+        document.getElementById('gender_modal').value = 
+        (document.getElementById('gender_'+artist_id).innerText == "Male") ? "m" 
+        : (document.getElementById('gender_'+artist_id).innerText == "Female") ? "f" 
+        : "o" ;
+        document.getElementById('address_modal').value = document.getElementById('address_'+artist_id).innerText;
+        document.getElementById('no_of_album_modal').value = document.getElementById('noa_'+artist_id).innerText;
+        document.getElementById('first_release_modal').value = document.getElementById('debut_'+artist_id).innerText;
+        document.getElementById('modal_submit').value = 'update_'+artist_id;
+    }
 </script>
 <!-- jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

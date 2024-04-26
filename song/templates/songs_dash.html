@@ -58,5 +58,10 @@
 
 
 {% block update_form %}
-{% include 'update_song_dash.html' %} 
+{% include 'update_song_dash.html' with btn="Update" %} 
 {% endblock %} 
+
+
+{% block register_form %}
+{% include 'update_song_dash.html' with btn="Insert" %} 
+{% endblock %}    

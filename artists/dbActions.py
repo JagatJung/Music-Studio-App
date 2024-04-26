@@ -27,3 +27,8 @@ def updateArtist(name, dob, gender, address, no_of_album, first_release, artist_
 
     with connection.cursor() as cursor:
         cursor.execute(query, [name, dob, gender, address, first_release, no_of_album, artist_id])
+
+def insertArtist(name, dob, gender, address, no_of_album, first_release) :
+    query = "INSERT INTO artist (name, dob, gender, address, no_of_album_released, first_release_year, update_ts) VALUES (%s, %s, %s,%s, %s, %s, NOW())"
+    with connection.cursor() as cursor:
+        cursor.execute(query, [name, dob, gender, address, first_release, no_of_album])

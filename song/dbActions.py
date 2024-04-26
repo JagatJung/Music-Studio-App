@@ -40,3 +40,10 @@ def updateSongs(artist_id, title, album_name, genre, music_id) :
 
     with connection.cursor() as cursor:
         cursor.execute(query, [artist_id, title, album_name, genre, music_id])
+
+def insertSongs(artist_id, title, album_name, genre):
+    query = "INSERT INTO music (artist_id, title, album_name, genre, update_ts) VALUES (%s, %s, %s,%s, NOW())"
+
+    with connection.cursor() as cursor:
+        cursor.execute(query, [artist_id, title, album_name, genre])
+

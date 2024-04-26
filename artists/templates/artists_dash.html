@@ -57,10 +57,13 @@
 </table>
 {% endblock %}
 
-{% block update_form %}
-{% include 'udpate_artist.html' %} 
+{% block update_form %} 
+{% include "udpate_artist.html" with btn="Update" %}
 {% endblock %} 
 
 
+{% block register_form %}
+{% include "udpate_artist.html" with btn="Insert" %}
+{% endblock %}    
 
 

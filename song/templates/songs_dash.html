@@ -8,7 +8,7 @@
     <thead>
         <tr>
             <th>sno</th>
-            <th>Name of Artist</th>
+            <th class="artist_column">Name of Artist</th>
             <th>Album</th>
             <th>Title</th>
             <th>Genre</th>
@@ -19,7 +19,7 @@
         {% for song in songs %}
         <tr>
             <td id="sno_{{song.song_id}}">{{forloop.counter}}</td>
-            <td id="name_{{song.song_id}}" value="{{song.artist_id}}">{{song.name}}</td>
+            <td id="name_{{song.song_id}}" value="{{song.artist_id}}" class="artist_column">{{song.name}}</td>
             <td id="album_{{song.song_id}}">{{song.album_name}}</td>
             <td id="title_{{song.song_id}}">{{song.title}}</td>
             <td id="genre_{{song.song_id}}">

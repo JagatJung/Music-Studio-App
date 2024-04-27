@@ -11,8 +11,8 @@
               <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="album_name_modal" name="album_name" type="text" placeholder="Name of Album">
             </div>
 
-              <div class="relative">
-                <select class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-2 px-3 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500" id="artist_select_modal" name="name" >
+              <div class="relative artist_selector" id="artist_selector">
+                <select class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-2 px-3 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500 artist_select_modal" id="artist_select_modal" name="name" >
                     {% for artist in artists %}
                         <option value="{{ artist.artist_id }}">{{ artist.name }}</option>
                     {% endfor %}

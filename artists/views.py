@@ -20,3 +20,4 @@ def artist(request):
             upload_to_db_from_csv(request.FILES['csv_file'])
             return render(request, "artists_dash.html", {'artists':getArtist, 'years': years})
     return render(request, "artists_dash.html", {'artists':getArtist, 'years': years})
+

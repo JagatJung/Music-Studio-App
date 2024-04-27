@@ -21,7 +21,7 @@
         {% for artist in artists %}
         <tr>
             <td id="sno_{{artist.id}}">{{forloop.counter}}</td>
-            <td id="name_{{artist.id}}">{{artist.name}}</td>
+            <td id="name_{{artist.id}}"> <a href="artist_music/{{artist.id}}">{{artist.name}} </a></td>
             <td id="dob_{{artist.id}}">{{artist.dob | date:'Y-m-d'}}</td>
             <td id="gender_{{artist.id}}">
                 {% if artist.gender == 'f' %} Female

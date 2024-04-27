@@ -140,23 +140,44 @@
 
         document.getElementById('view_table_length').classList.add("pt-2");
         document.getElementById('view_table_length').classList.add("ml-2");
-        document.getElementById('customButton').classList.add("colorBg");
 
         const labelElement = document.getElementById('view_table_length').getElementsByTagName('label')[0];
         var textNodes = labelElement.childNodes;
             
-            // Iterate over the text nodes
-            for (var i = 0; i < textNodes.length; i++) {
-                // Check if the text node contains "Show"
-                if (textNodes[i].nodeType === Node.TEXT_NODE && textNodes[i].textContent.trim() === "Show") {
-                    // Replace "Show" with the desired string
-                    textNodes[i].textContent = "     |  Show ";
-                    break; // Exit the loop after replacing the first occurrence
-                }
+        // Iterate over the text nodes
+        for (var i = 0; i < textNodes.length; i++) {
+            // Check if the text node contains "Show"
+            if (textNodes[i].nodeType === Node.TEXT_NODE && textNodes[i].textContent.trim() === "Show") {
+                // Replace "Show" with the desired string
+                textNodes[i].textContent = "     |  Show ";
+                break; // Exit the loop after replacing the first occurrence
             }
+        }
+
+        const getUrl = window.location.href;
+        if (getUrl.includes('artist/artist_music')){
+            const element_modal = document.getElementsByClassName("artist_select_modal");
+            
+            const parts = getUrl.split("/");
+            const lastPart = parts[parts.length - 2];
+            const lastInteger = parseInt(lastPart);
+            element_modal[0].value = lastInteger; 
+            element_modal[1].value = lastInteger; 
+            element_modal[0].style.display = 'none';
+            element_modal[1].style.display = 'none';
+
+            const csv_button = document.getElementsByClassName("buttons-csv");
+            csv_button[0].style.display = 'none';
+
+            const element_table = document.getElementsByClassName("artist_column");
+            for (let i = 0; i < element_table.length; i++) {
+                element_table[i].hidden = true;
+            }
+        } 
+        
     });
     
-    
+
     
     
 

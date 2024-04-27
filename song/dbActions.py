@@ -1,8 +1,11 @@
 from django.db import connection
 
-def getSongs(): 
+def getSongs(id = -1): 
     with connection.cursor() as cursor:
-            cursor.execute("SELECT ms.id as song_id, ar.id as artist_id, ar.name as name, album_name, title, genre FROM music ms LEFT JOIN artist ar on ms.artist_id = ar.id")
+            query = "SELECT ms.id as song_id, ar.id as artist_id, ar.name as name, album_name, title, genre FROM music ms INNER JOIN artist ar on ms.artist_id = ar.id"
+            if int(id) is not -1:
+                query = query + " AND ar.id = " + str(id)
+            cursor.execute(query)
             rows = cursor.fetchall()
     songs = []
     for row in rows:

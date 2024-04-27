@@ -60,6 +60,12 @@
                   {{btn}}
               </button>
           </form>
-  </form>
+
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="csv_file" accept=".csv" />
+        <input type="hidden" name="submit" value="csv_" />
+        <button type="submit" value="csv_" name="submit">Upload</button>
+    </form>
 
 

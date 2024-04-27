@@ -46,4 +46,3 @@ def insertSongs(artist_id, title, album_name, genre):
 
     with connection.cursor() as cursor:
         cursor.execute(query, [artist_id, title, album_name, genre])
-

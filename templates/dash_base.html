@@ -119,15 +119,7 @@
     $(document).ready(function() {
         $('#view_table').DataTable({
             dom: 'B<"top"f>rt<"bottom"ilp><"clear">', // Default layout with 'B' for Buttons
-            buttons: [
-                {
-                    text: 'Add',
-                    className: 'my-custom-button', // Add a custom class to your button
-                    action: function (e, dt, node, config) {
-                        register.showModal();
-                    }
-                }
-            ]
+            buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
         });
         
 
@@ -211,5 +203,7 @@
 
 <!-- DataTables Buttons -->
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+
 </body>
 </html>

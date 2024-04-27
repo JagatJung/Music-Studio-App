@@ -1,7 +1,21 @@
-<form method='POST' class="mt-4 ">
+
+<div class="w-full flex md:w-auto bg-gray-600 rounded-lg my-2 shadow-2xl">
+   
+  <form method="post" enctype="multipart/form-data" class="flex-1 md:flex-none p-3 ">
+      {% csrf_token %}
+      <label class="pb-3">Upload using CSV</label><br>
+      <input type="file" name="csv_file" accept=".csv" required class = "bg-white rounded mr-4 mt-3" />
+      <input type="hidden" name="submit" value="csv_"/>
+      <button type="submit" value="csv_" name="submit" class="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded">Upload</button>
+  </form>
+</div>
+
+<p class="divider text-center font-bold">-------------------------- OR --------------------------</p>
+
+<form method='POST' class="mt-4 bg-gray-600 p-5 rounded-lg">
     {% csrf_token %}
       <div class="max-w-lg mx-auto">
-          <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <form class="bg-white shadow-md rounded px-8 pt-6 mb-4">
             
             <div class="mb-4">
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name_modal" name="name" type="text" placeholder="Name">
@@ -31,7 +45,7 @@
               <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address_modal" name="address" placeholder="Address"></input>
             </div>
 
-            <div class="mb-4">
+            <div class="">
                 <div class="mb-4 flex">
                   <div class="w-1/2 mr-1">
                     <label>Number of Albums</label>
@@ -55,17 +69,12 @@
                   </div>
                 </div>
 
-            <div class="flex  justify-end"> <!-- Use flex container to align buttons -->
-              <button class="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded" type="submit" id="modal_submit" name="submit" value="insert_">
+            <div class="flex"> <!-- Use flex container to align buttons -->
+              <button class="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded w-50" type="submit" id="modal_submit" name="submit" value="insert_">
                   {{btn}}
               </button>
           </form>
+  
 
-      <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input type="file" name="csv_file" accept=".csv" />
-        <input type="hidden" name="submit" value="csv_" />
-        <button type="submit" value="csv_" name="submit">Upload</button>
-    </form>
 
 

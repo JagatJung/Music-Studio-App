@@ -97,7 +97,7 @@
   </dialog>
 
 
-  <dialog id="register" class="modal bg-gray-700 text-white rounded-xl px-5 py-3 drop-shadow-xl">
+  <dialog id="register" class="modal bg-gray-700 text-white rounded-xl px-5 py-3 drop-shadow-xl ">
     <div class="modal-box min-w-48 p-4">
       <h3 class="font-bold text-lg">Register User</h3>
       {% block register_form %}
@@ -121,6 +121,10 @@
 
 
     $(document).ready(function() {
+        const getUrl = window.location.href;
+        const parts = getUrl.split("/");
+        console.log(parts[3]);
+
         $('#view_table').DataTable({
             dom: 'B<"top"f>rt<"bottom"ilp><"clear">', 
             buttons: [
@@ -130,7 +134,7 @@
                     action: function (e, dt, node, config) {
                         register.showModal();
                     }
-                }, 'csv'
+                }, (parts[3] === 'artist') ? 'csv':''
             ]
         });
         
@@ -154,11 +158,8 @@
             }
         }
 
-        const getUrl = window.location.href;
         if (getUrl.includes('artist/artist_music')){
             const element_modal = document.getElementsByClassName("artist_select_modal");
-            
-            const parts = getUrl.split("/");
             const lastPart = parts[parts.length - 2];
             const lastInteger = parseInt(lastPart);
             element_modal[0].value = lastInteger; 

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<p class ="text-3xl font-bold ">Register</p>
+<form method='POST' class="mt-4 p-3">
+    {% csrf_token %}
+      <div class="max-w-lg mx-auto">
+          <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4 flex">
+              <div class="w-1/2 mr-1">
+  
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded" name="first_name_register" type="text" placeholder="First Name">
+              </div>
+              <div class="w-1/2">
+  
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="last_name_register" type="text" placeholder="Last Name">
+              </div>
+            </div>
+            <div class="mb-4">
+  
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="dob_register" type="date">
+            </div>
+            <div class="mb-4">
+  
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email_register" type="email" placeholder="Email">
+            </div>
+            <div class="mb-4">
+  
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="phone_register" type="tel" placeholder="Phone Number">
+            </div>
+            <div class="mb-4">
+  
+              <div class="relative">
+                <select class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-2 px-3 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500" name="gender_register" >
+                  <option value="m">Male</option>
+                  <option value="f">Female</option>
+                  <option value="o">Other</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 100-20 10 10 0 000 20z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="mb-4">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="address_register" placeholder="Address"></input>
+            </div>
+            <div class="flex  justify-start"> <!-- Use flex container to align buttons -->
+              <button class="bg-primary text-white  py-2 px-4 rounded btn flex-1" type="submit" name="submit" value="insert_">
+                  Register
+              </button>
+         
+                <a href = '../' class="bg-primary text-white py-2 px-4 rounded ml-2 flex-1 btn bg-error" type="submit" name="submit">
+                    Cancel
+                </a>
+
+          </div>
+          </form>
+{% endblock %}

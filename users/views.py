@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from users.dbActions import getUsers, dlt_user, updateUser, insertUser, resetPasswordUser
+from registeration.sessionCheck import session_required
 
-
+@session_required
 def user(request):
     if request.method == "POST":
         if request.method == "POST":

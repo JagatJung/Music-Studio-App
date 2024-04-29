@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from artists.dbActions import getArtist, dlt_artist, updateArtist, insertArtist
 from artists.cvActions import upload_to_db_from_csv
+from registeration.sessionCheck import session_required
 
+@session_required
 def artist(request):
     years =  range(1800,2025)
     if request.method == "POST":

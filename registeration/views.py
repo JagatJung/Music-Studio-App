@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,  redirect
 from django.http import HttpResponse, JsonResponse
 from django.db import connection
 from registeration.dbActions import checkUser
@@ -8,10 +8,10 @@ def login(request):
     if request.method == "POST":
         uid = checkUser(request.POST['user'], request.POST['password'])
         if uid == -1:
-            print('wrong happen')
             return render(request, "login_form.html")
         else:
-            return render(request, "login_form.html")
+            request.session['username'] = uid
+            return redirect("/user")
         
     return render(request, "login_form.html")
 

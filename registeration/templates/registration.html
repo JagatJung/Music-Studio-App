@@ -11,24 +11,28 @@
             <div class="mb-4 flex">
               <div class="w-1/2 mr-1">
   
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded" name="first_name_register" type="text" placeholder="First Name">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline rounded" name="first_name_register" type="text" placeholder="First Name" id="fname" onblur="validateText('fname', 'fnameError','submit_name')" required>
+                <span id="fnameError" class="text-red-500 msgError"></span>
               </div>
               <div class="w-1/2">
   
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="last_name_register" type="text" placeholder="Last Name">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="last_name_register" type="text" placeholder="Last Name" id="lname" onblur="validateText('lname', 'lnameError','submit_name')" required>
+                <span id="lnameError" class="text-red-500 msgError"></span>
               </div>
             </div>
             <div class="mb-4">
   
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="dob_register" type="date">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="dob_register" type="date" id="bdate" onblur="validateDate('bdate', 'bdateError','submit_name')" required>
+              <span id="bdateError" class="text-red-500 msgError"></span>
             </div>
             <div class="mb-4">
   
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email_register" type="email" placeholder="Email">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email_register" type="email" placeholder="Email" id="remail" onblur="validateEmail('remail', 'remailError','submit_name')" required>
+              <span id="remailError" class="text-red-500 msgError"></span>
             </div>
             <div class="mb-4">
-  
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="phone_register" type="tel" placeholder="Phone Number">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="phone_register" type="text" placeholder="Phone Number" id="phone_number" onblur="ValidatePhoneNumber('phone_number', 'phoneError','submit_name')" required>
+              <span id="phoneError" class="text-red-500 msgError"></span>
             </div>
             <div class="mb-4">
   
@@ -47,10 +51,11 @@
               </div>
             </div>
             <div class="mb-4">
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="address_register" placeholder="Address"></input>
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="address_register" placeholder="Address" id="raddress" onblur="validateText('raddress', 'raddressError','submit_name')" required></input>
+              <span id="raddressError" class="text-red-500 msgError"></span>
             </div>
             <div class="flex  justify-start"> <!-- Use flex container to align buttons -->
-              <button class="bg-primary text-white  py-2 px-4 rounded btn flex-1" type="submit" name="submit" value="insert_">
+              <button class="bg-primary text-white  py-2 px-4 rounded btn flex-1" type="submit" name="submit" value="insert_" id="submit_name"> 
                   Register
               </button>
          

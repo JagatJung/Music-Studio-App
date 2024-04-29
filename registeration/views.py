@@ -25,5 +25,9 @@ def register(request):
         
     return render(request, "registration.html")
 
+def delSession(request):
+    del request.session['username']
+    return render(request, "login_form.html")
+
 
 

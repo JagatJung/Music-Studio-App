@@ -7,7 +7,6 @@ document.getElementById('toggleSidebar').addEventListener('click', function() {
 $(document).ready(function() {
     const getUrl = window.location.href;
     const parts = getUrl.split("/");
-    console.log(parts[3]);
 
     $('#view_table').DataTable({
         dom: 'B<"top"f>rt<"bottom"ilp><"clear">', 
@@ -59,6 +58,7 @@ $(document).ready(function() {
             element_table[i].hidden = true;
         }
     } 
+
     
 });
 
@@ -86,6 +86,7 @@ function showModalCustom(user_id) {
 function showModalArtist(artist_id) {
     update.showModal();
 
+    document.getElementById('csv_uploader').style.display = 'none';
     document.getElementById('name_modal').value = document.getElementById('name_'+artist_id).innerText;
     document.getElementById('dob_modal').value = document.getElementById('dob_'+artist_id).innerText;
     document.getElementById('gender_modal').value = 

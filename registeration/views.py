@@ -3,16 +3,20 @@ from django.http import HttpResponse, JsonResponse
 from django.db import connection
 from registeration.dbActions import checkUser
 from users.dbActions import insertUser
+import registeration.validateActions  as VDA
 
 def login(request):
     if request.method == "POST":
-        uid = checkUser(request.POST['user'], request.POST['password'])
-        if uid == -1:
-            return render(request, "login_form.html")
+        if VDA.validate_email(request.POST['user']) and VDA.validate_password(request.POST['password']):
+            uid = checkUser(request.POST['user'], request.POST['password'])
+            if uid[0] == -1:
+                return render(request, "login_form.html", {'msg':'invalid username or password'})
+            else:
+                request.session['username'] = uid[0]
+                request.session['name'] = uid[1]
+                return redirect("/user")
         else:
-            request.session['username'] = uid
-            return redirect("/user")
-        
+            return render(request, "login_form.html", {'msg': 'invalid username or password' })
     return render(request, "login_form.html")
 
 def register(request):
@@ -27,7 +31,7 @@ def register(request):
 
 def delSession(request):
     del request.session['username']
-    return render(request, "login_form.html")
+    return redirect("/")
 
 
 

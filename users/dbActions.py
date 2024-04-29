@@ -1,4 +1,4 @@
-from django.db import connection
+from django.db import connection, OperationalError
 
 def getUsers(): 
     with connection.cursor() as cursor:
@@ -20,8 +20,16 @@ def getUsers():
     return users
 
 def dlt_user(user_id):
-    with connection.cursor() as cursor:
-        cursor.execute("DELETE FROM user WHERE id = %s", [user_id]) 
+    msg = ''
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("DELETE FROM user WHERE id = %s", [user_id])
+        msg = 'The delete operation was successful'
+    except OperationalError as e:
+        msg = "Some error has occured: Error occurred" + str(e)
+    
+    finally:
+        return msg
 
 def insertUser(first_name, last_name, email, phone, dob, gender, address):
     query = "INSERT INTO user (first_name, last_name, email, phone, dob, gender, address, updated_at) VALUES (%s, %s, %s,%s, %s, %s,%s, NOW())"

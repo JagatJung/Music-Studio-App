@@ -6,3 +6,8 @@ body {
 #main {
     transition: margin-left 0.3s ease; 
 }   
+
+#the_msg_box {
+  display: none;
+  transition: opacity 0.5s;
+}

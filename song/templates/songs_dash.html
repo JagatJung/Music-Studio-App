@@ -1,5 +1,12 @@
 {% extends 'dash_base.html' %}
 
+{% block dash_text %}
+    Welcome {{username}}, to the artist dashboard.
+    <ul class="list-disc pl-6">
+        <li>In this pannel you can search, delete, insert and edit songs</li>
+    </ul>
+{% endblock%}
+
 {% block song_active %}bg-gray-700{% endblock %}
 
 {% block content %}

@@ -69,7 +69,7 @@
 <div class="ml-0 md:ml-64 px-3" id="main">
     <!-- Content -->
     <div class="p-4 px-5 bg-white rounded-xl my-2 shadow-lg font-bold">
-        Welcome User Name to the user dashboard.
+        {% block dash_text %} {% endblock%}
     </div>
 
     <div class="p-4 overflow-y-auto px-5 bg-white rounded-xl my-2 shadow-lg">
@@ -111,7 +111,13 @@
     </div>
   </dialog>
 
+<div class="fixed top-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-md shadow-lg" id='the_msg_box'>
+    <div class="text-sm px-2 py-2">{{msg}}</div>
+</div>
+
 <script src="{% static 'scripts.js' %}"></script>
+<script src="{% static 'validationAndPopup.js' %}"></script>
+
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>

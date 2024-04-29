@@ -2,6 +2,16 @@
 
 {% block artist_active %}bg-gray-700{% endblock %}
 
+{% block dash_text %}
+    Welcome {{username}}, to the artist dashboard.
+    <ul class="list-disc pl-6">
+        <li>In this pannel you can search, delete, insert and edit artist</li>
+        <li>You can select artist to get their songs and edit them as well</li>
+        <li>You can import and export CSV file for artist</li>
+
+    </ul>
+{% endblock%}
+
 {% block content %}
    
 <table id="view_table" class="display w-full z-0">

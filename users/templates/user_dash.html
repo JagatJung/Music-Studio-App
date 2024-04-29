@@ -1,5 +1,15 @@
 {% extends 'dash_base.html' %}
 
+{% block dash_text %}
+    Welcome {{username}}, to the user dashboard.
+    <ul class="list-disc pl-6">
+        <li>In this pannel you can search, delete, insert and edit users</li>
+        <li>You can reset password of other users but can not change</li>
+        <li>You can Change your own password only</li>
+
+    </ul>
+{% endblock%}
+
 {% block user_active %}bg-gray-700{% endblock %}
 
 {% block content %}

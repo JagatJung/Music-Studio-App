@@ -4,27 +4,23 @@
 
 {% block content %}
 <h2 class="text-2xl font-bold mb-5 text-center">Login</h2>
-        <form method='POST'>
+        <form id="registrationForm" method="POST">
             <div class="mb-4">
-                <label class="block text-lime text-sm font-bold mb-2" for="username">
-                    Username
-                </label>
+                <label class="block text-lime text-sm font-bold mb-2" for="username">Username</label>
                 {% csrf_token %}
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" name="user">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-shadow" id="username" type="text" placeholder="Username" name="user" onblur="validateEmail('usernameError','submit_button')" required>
+                <span id="usernameError" class="text-red-500"></span> <!-- Error message placeholder -->
             </div>
             <div class="mb-6">
-                <label class="block text-lime text-sm font-bold mb-2" for="password">
-                    Password
-                </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" name="password">
+                <label class="block text-lime text-sm font-bold mb-2" for="password">Password</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" name="password" onblur="validatePassword('passwordError', 'submit_button')" required>
+                <span id="passwordError" class="text-red-500"></span> <!-- Error message placeholder -->
             </div>
-            <div class="flex items-center justify-between ">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">
-                    Sign In
-                </button>
+            <div class="flex items-center justify-between">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit" id='submit_button'>Login</button>
             </div>
         </form>
-       <p><a href='register/' class="text-center mt-2 w-full">Forgot Password</a></p>
+       <p><a href='register/' class="text-center mt-2 w-full">Reset Password</a></p>
         <div class="divider">OR</div>
 
 <a href='register/' class="text-center mt-2 btn btn-primary w-full">register here</a>

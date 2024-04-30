@@ -4,11 +4,13 @@
           <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             
             <div class="mb-4">
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title_modal" name="title" type="text" placeholder="title">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title_modal" name="title" type="text" placeholder="title" onblur="validateText('title_modal', 'title_modal_error','modal_submit')" required>
+                <span id="title_modal_error" class="text-red-500 msgError"></span>
               </div>
 
             <div class="mb-4">
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="album_name_modal" name="album_name" type="text" placeholder="Name of Album">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="album_name_modal" name="album_name" type="text" placeholder="Name of Album" onblur="validateText('album_name_modal', 'album_name_error','modal_submit')" required>
+              <span id="album_name_error" class="text-red-500 msgError"></span>
             </div>
 
               <div class="relative artist_selector" id="artist_selector">

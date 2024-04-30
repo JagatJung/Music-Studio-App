@@ -19,12 +19,14 @@
           <form class="bg-white shadow-md rounded px-8 pt-6 mb-4">
             
             <div class="mb-4">
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name_modal" name="name" type="text" placeholder="Name">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name_modal" name="name" type="text" placeholder="Name" onblur="validateText('name_modal', 'name_modal_error','modal_submit')" required>
+                <span id="name_modal_error" class="text-red-500 msgError"></span>
               </div>
 
             <div class="mb-4">
                 <label>Date of Birth</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dob_modal" name="dob" type="date">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dob_modal" name="dob" type="date" onblur="validateDate('dob_modal', 'dob_modal_error','modal_submit')" required>
+              <span id="dob_modal_error" class="text-red-500 msgError"></span>
             </div>
 
               <div class="relative">
@@ -43,7 +45,8 @@
 
     
             <div class="mb-4 mt-4">
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address_modal" name="address" placeholder="Address"></input>
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address_modal" name="address" placeholder="Address" onblur="validateText('address_modal', 'address_modal_error','modal_submit')" required></input>
+              <span id="address_modal_error" class="text-red-500 msgError"></span>
             </div>
 
             <div class="">

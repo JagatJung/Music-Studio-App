@@ -5,24 +5,34 @@
           <div class="mb-4 flex">
             <div class="w-1/2 mr-1">
 
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first_name_modal" name="first_name" type="text" placeholder="First Name">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first_name_modal" name="first_name" type="text" placeholder="First Name" 
+              onblur="validateText('first_name_modal', 'fnameError','modal_submit')"
+              required>
+              <span id="fnameError" class="text-red-500 msgError"></span>
+
             </div>
             <div class="w-1/2">
 
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="last_name_modal" name="last_name" type="text" placeholder="Last Name">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="last_name_modal" name="last_name" type="text" placeholder="Last Name" onblur="validateText('last_name_modal', 'lastError','modal_submit')"
+              required>
+              <span id="lastError" class="text-red-500 msgError">
             </div>
           </div>
           <div class="mb-4">
 
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dob_modal" name="dob" type="date">
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dob_modal" name="dob" type="date" onblur="validateDate('dob_modal', 'bdateError','modal_submit')"
+            required>
+            <span id="bdateError" class="text-red-500 msgError">
           </div>
           <div class="mb-4">
 
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email_modal" name="email" type="email" placeholder="Email">
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email_modal" name="email" type="email" placeholder="Email" onblur="validateEmail('email_modal', 'remailError','modal_submit')" required>
+            <span id="remailError" class="text-red-500 msgError"></span>
           </div>
           <div class="mb-4">
 
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone_modal" name="phone" type="tel" placeholder="Phone Number">
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone_modal" name="phone" type="tel" placeholder="Phone Number" onblur="ValidatePhoneNumber('phone_modal', 'phoneError','modal_submit')" required>
+            <span id="phoneError" class="text-red-500 msgError"></span>
           </div>
           <div class="mb-4">
 
@@ -41,10 +51,11 @@
             </div>
           </div>
           <div class="mb-4">
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address_modal" name="address" placeholder="Address"></input>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address_modal" name="address" placeholder="Address" onblur="validateText('address_modal', 'addressError','modal_submit')" required>
+            <span id="addressError" class="text-red-500 msgError"></span></input>
           </div>
           <div class="flex  justify-end"> <!-- Use flex container to align buttons -->
-            <button class="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded" type="submit" id="modal_submit" name="submit">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded" type="submit" id="modal_submit" name="submit"> 
                 Update
             </button>
         </form>

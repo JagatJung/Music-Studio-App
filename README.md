@@ -17,7 +17,7 @@ This project is a simple admin panel designed to manage records of artists and t
 - **Language:** Python
 - **Framework:** Django
 - **Frontend:** HTML, CSS (Tailwind CSS), JavaScript
-- **Database:** PostgreSQL (Relational Database)
+- **Database:** MySQL (Relational Database)
 - **ORM:** Raw SQL queries
 - **API:** Django Views (Not RESTful)
 - **UI Components:** DataTables
